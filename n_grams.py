@@ -6,7 +6,6 @@ from pm4py.statistics.traces.log import case_statistics
 from collections import Counter
 from collections import defaultdict
 
-
 #Import event log data
 log = xes_importer.apply('event_log.xes')
 
@@ -62,7 +61,7 @@ def get_predictions(pattern, ngrams):
         probs[j[-1]].append(k/total_occurences_n)
   
   df = pd.DataFrame.from_dict(probs, orient='index').transpose().fillna(0)
-  print(df)
+  print(df.to_markdown())
   return df
 
 
