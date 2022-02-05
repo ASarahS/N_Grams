@@ -4,13 +4,10 @@ import tkinter as tk
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-from pandastable import Table, TableModel
-from PIL import ImageTk, Image
-
-import sys,os
-import pm4py
+from pandastable import Table #Todo : add to requirements
+import sys
+import pm4py #Todo: install pm4py
 import pandas as pd
-
 from pm4py.objects.log.importer.xes import importer as xes_importer
 from pm4py.statistics.traces.log import case_statistics
 from collections import Counter
@@ -129,7 +126,6 @@ def start():
     clear_btn.grid(column = 4, row=4,columnspan=2);
     # create buttons
     button_dict = {}
-    col=1
 
     def text_updation(language):
         text.insert('end', str(language)+",")
@@ -146,6 +142,8 @@ def start():
     button3 = Button(window, text = "< Back ",command = lambda:goBack(), font = "Raleway", fg="#0077b6", height = 1, width = 8,borderwidth=0)
     button3.grid(column=0, row=0,columnspan=2,sticky = 'nw',pady=3)
 
+    col=1
+    row=3;
     for lang in events:
         # pass each button's text to a function
         def action(x = lang):
@@ -153,7 +151,10 @@ def start():
 
         # create the buttons
         button_dict[lang] = Button(window, text = lang,command = action,font = "Raleway", bg = "#0077b6", fg="white", height = 2, width = 15)
-        button_dict[lang].grid(column=col, row=3,padx=10,pady=10)
-        col+=1
+        if(col % 5 == 0):
+            row = row + 1;
+            col = 1;
+        button_dict[lang].grid(column=col, row=row,padx=10,pady=10)
+        col += 1
 
     window.mainloop()

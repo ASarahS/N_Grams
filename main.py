@@ -4,7 +4,6 @@ import sys,os
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from tkinter import *
-from PIL import Image, ImageTk
 from tkinter.filedialog import askopenfile
 import generate as generate
 
