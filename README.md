@@ -1,4 +1,6 @@
 # Predictive Process Mining with N_Grams Algorithm
+Predict N_Gram Probabilities for given Event log and Sequence
+
 
 ### Software Requirements
 Python
